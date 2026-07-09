@@ -1,0 +1,174 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #000;
+	color: #ccc;
+	font-family: system-ui, -apple-system, sans-serif;
+}
+
+#app {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+#toolbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	background: #111;
+	border-bottom: 1px solid #333;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+}
+
+#toolbar h1 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	margin-right: auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 40vw;
+}
+
+#toolbar label {
+	font-size: 12px;
+	color: #aaa;
+	white-space: nowrap;
+}
+
+#toolbar button,
+#toolbar select {
+	background: #222;
+	color: #eee;
+	border: 1px solid #444;
+	border-radius: 4px;
+	padding: 6px 10px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+#toolbar button:hover,
+#toolbar select:hover {
+	background: #333;
+}
+
+#toolbar button.primary {
+	background: #1a472a;
+	border-color: #2d6a4f;
+}
+
+#toolbar button:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+#main {
+	display: flex;
+	flex: 1;
+	min-height: 0;
+	position: relative;
+}
+
+#scope-wrap {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	background: #000;
+}
+
+#scope {
+	max-width: 100%;
+	max-height: 100%;
+	image-rendering: pixelated;
+}
+
+#bottom-bar {
+	display: flex;
+	height: 64px;
+	flex-shrink: 0;
+	border-top: 1px solid #333;
+}
+
+#waterfall-wrap {
+	flex: 1;
+	min-width: 0;
+	background: #000;
+}
+
+#waterfall {
+	width: 100%;
+	height: 100%;
+	display: block;
+	image-rendering: pixelated;
+}
+
+#peak-meter {
+	width: 16px;
+	flex-shrink: 0;
+	background: #111;
+}
+
+#status {
+	position: fixed;
+	bottom: 72px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(0, 0, 0, 0.75);
+	padding: 6px 14px;
+	border-radius: 4px;
+	font-size: 12px;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+#status.show {
+	opacity: 1;
+}
+
+#image-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.85);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 12px;
+	z-index: 100;
+}
+
+#image-overlay.open {
+	display: flex;
+}
+
+#decoded-image {
+	max-width: 95vw;
+	max-height: 80vh;
+	image-rendering: pixelated;
+	border: 1px solid #444;
+}
+
+#image-overlay button {
+	background: #222;
+	color: #eee;
+	border: 1px solid #555;
+	border-radius: 4px;
+	padding: 8px 16px;
+	cursor: pointer;
+}

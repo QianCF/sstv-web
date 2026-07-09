@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>SSTV Encoder</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app">
+		<div id="toolbar">
+			<h1 id="title">SSTV Encoder</h1>
+			<button id="btn-load" class="primary">选择图片</button>
+			<input type="file" id="file-input" accept="image/*">
+			<button id="btn-rotate">旋转 90°</button>
+			<button id="btn-reset">重置</button>
+			<label for="fit-select">布局</label>
+			<select id="fit-select" title="图片布局">
+				<option value="contain" selected>适应（黑边）</option>
+				<option value="crop">裁剪填满</option>
+			</select>
+			<label for="mode-select">模式</label>
+			<select id="mode-select" title="SSTV 模式"></select>
+			<button id="btn-play" class="primary">播放</button>
+			<button id="btn-stop" disabled>停止</button>
+			<button id="btn-save">保存 WAV</button>
+		</div>
+		<div id="main">
+			<div id="crop-wrap">
+				<canvas id="crop-canvas"></canvas>
+			</div>
+		</div>
+		<div id="bottom-bar">
+			<div class="progress-row">
+				<label>播放</label>
+				<progress id="progress-play" max="100" value="0"></progress>
+				<span id="progress-play-text" class="progress-text">—</span>
+			</div>
+			<div class="progress-row">
+				<label>保存</label>
+				<progress id="progress-save" max="100" value="0"></progress>
+				<span id="progress-save-text" class="progress-text">—</span>
+			</div>
+		</div>
+	</div>
+	<div id="status"></div>
+	<script type="module" src="js/main.js"></script>
+</body>
+</html>

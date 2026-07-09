@@ -1,0 +1,164 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #000;
+	color: #ccc;
+	font-family: system-ui, -apple-system, sans-serif;
+}
+
+#app {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+#toolbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	background: #111;
+	border-bottom: 1px solid #333;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+}
+
+#toolbar h1 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	margin-right: auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 40vw;
+}
+
+#toolbar label {
+	font-size: 12px;
+	color: #aaa;
+	white-space: nowrap;
+}
+
+#toolbar button,
+#toolbar select {
+	background: #222;
+	color: #eee;
+	border: 1px solid #444;
+	border-radius: 4px;
+	padding: 6px 10px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+#toolbar button:hover,
+#toolbar select:hover {
+	background: #333;
+}
+
+#toolbar button.primary {
+	background: #1a3a47;
+	border-color: #2d5a6a;
+}
+
+#toolbar button:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+#toolbar input[type="file"] {
+	display: none;
+}
+
+#main {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #000;
+	position: relative;
+}
+
+#crop-wrap {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#crop-canvas {
+	max-width: 100%;
+	max-height: 100%;
+	touch-action: none;
+	cursor: grab;
+}
+
+#crop-canvas:active {
+	cursor: grabbing;
+}
+
+#bottom-bar {
+	flex-shrink: 0;
+	padding: 8px 12px;
+	background: #111;
+	border-top: 1px solid #333;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.progress-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.progress-row label {
+	font-size: 11px;
+	color: #888;
+	width: 48px;
+	flex-shrink: 0;
+}
+
+progress {
+	flex: 1;
+	height: 8px;
+	accent-color: #4a9;
+}
+
+.progress-text {
+	font-size: 11px;
+	color: #aaa;
+	min-width: 120px;
+	text-align: right;
+}
+
+#status {
+	position: fixed;
+	bottom: 80px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(0, 0, 0, 0.75);
+	padding: 6px 14px;
+	border-radius: 4px;
+	font-size: 12px;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+	z-index: 50;
+}
+
+#status.show {
+	opacity: 1;
+}

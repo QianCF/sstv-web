@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Robot36 SSTV</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app">
+		<div id="toolbar">
+			<h1 id="title">Robot36 SSTV</h1>
+			<button id="btn-start" class="primary">开始监听</button>
+			<button id="btn-stop" disabled>停止</button>
+			<select id="mode-select" title="解码模式">
+				<option value="Auto">自动</option>
+				<option value="Raw">Raw</option>
+				<option value="HF Fax">HF Fax</option>
+				<option value="Robot 36 Color">Robot 36</option>
+				<option value="Robot 72 Color">Robot 72</option>
+				<option value="PD 50">PD 50</option>
+				<option value="PD 90">PD 90</option>
+				<option value="PD 120">PD 120</option>
+				<option value="PD 160">PD 160</option>
+				<option value="PD 180">PD 180</option>
+				<option value="PD 240">PD 240</option>
+				<option value="PD 290">PD 290</option>
+				<option value="Martin 1">Martin 1</option>
+				<option value="Martin 2">Martin 2</option>
+				<option value="Scottie 1">Scottie 1</option>
+				<option value="Scottie 2">Scottie 2</option>
+				<option value="Scottie DX">Scottie DX</option>
+				<option value="Wraase SC2–180">Wraase SC2–180</option>
+			</select>
+			<select id="channel-select" title="声道">
+				<option value="0">默认</option>
+				<option value="1">左声道</option>
+				<option value="2">右声道</option>
+				<option value="3">求和</option>
+				<option value="4">解析信号</option>
+			</select>
+			<label for="rate-select">采样率</label>
+			<select id="rate-select" title="采样率">
+				<option value="44100" selected>44100 Hz</option>
+				<option value="48000">48000 Hz</option>
+				<option value="32000">32000 Hz</option>
+				<option value="16000">16000 Hz</option>
+				<option value="8000">8000 Hz</option>
+			</select>
+			<label for="waterfall-mode">瀑布图</label>
+			<select id="waterfall-mode" title="瀑布图模式">
+				<option value="spectrogram" selected>频谱图</option>
+				<option value="frequency">频率图</option>
+			</select>
+			<button id="btn-save-scope">保存示波器</button>
+		</div>
+		<div id="main">
+			<div id="scope-wrap">
+				<canvas id="scope"></canvas>
+			</div>
+		</div>
+		<div id="bottom-bar">
+			<div id="waterfall-wrap">
+				<canvas id="waterfall"></canvas>
+			</div>
+			<canvas id="peak-meter" width="1" height="16"></canvas>
+		</div>
+	</div>
+	<div id="status"></div>
+	<div id="image-overlay">
+		<canvas id="decoded-image"></canvas>
+		<button id="btn-save-image">保存图片</button>
+		<button id="btn-close-image">关闭</button>
+	</div>
+	<script type="module" src="js/main.js"></script>
+</body>
+</html>
